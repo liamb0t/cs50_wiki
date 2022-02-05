@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+	{% if results == 0 %}
+		<h1>The title you are looking for "{{ query }}" does not exist.</h1>
+		<p>If you would like, you can create the title yourself <a href="{% url 'wiki:new' %}">here</a>.</p>
+	{% else %}
+	<h1>{{ results }} results for "{{ query }}":</h1>
+	<ul>
+		{% for entry in matches %}
+			<li>
+				<a href= "{{ entry }}" >{{ entry }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+{% endblock %}

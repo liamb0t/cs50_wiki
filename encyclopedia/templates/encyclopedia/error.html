@@ -1,0 +1,6 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+	<h1>The title you are looking for "{{ title }}" does not exist</h1>
+	<p>If you would like, you can create the title yourself <a href="{% url 'wiki:new' %}">here</a>.</p>
+{% endblock %}

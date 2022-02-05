@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+	<form action="{% url 'wiki:edit' %}" method="post">
+		<input type="hidden" name="ps" value="{{ title }}">
+	</form>
+	<a href="{% url 'wiki:edit' %}">Edit this page</a>
+	{{ entry|safe }}
+{% endblock %}
