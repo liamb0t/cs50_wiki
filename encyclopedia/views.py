@@ -18,9 +18,9 @@ def index(request):
     })
 
 def displayEntry(request, title):
-	if util.get_entry(title):
-		md = util.get_entry(title)
-		html = markdown2.markdown(md)
+	content = util.get_entry(title)
+	if content:
+		html = markdown2.markdown(content)
 		return render(request, "encyclopedia/displayEntry.html", {
 				"entry": html, 
 				"title": title,
